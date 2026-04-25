@@ -14,3 +14,9 @@ with open("server.crt", "rb") as f:
 # verified = verify_certificate(cert_client)
 # if not verified:
 #     connexion.close()  # certificat invalide, on coupe
+
+#recevoir la cle de session du client chiffree avec la cle publique du serveur
+encrypted_key = connexion.recv(4096)
+
+#dechiffrer la cle de session avec la cle privee du serveur
+# session_key = rsa_decrypt(encrypted_key, private_key) ############## comment recuperer la cle privee du serveur?#####################
